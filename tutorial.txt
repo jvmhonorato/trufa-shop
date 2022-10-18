@@ -1,0 +1,19 @@
+1: Criar pasta POC(prova de conceito)
+
+2: dentro dela cria .envhomologacao, .env.producao e .env-example, OBS: somente .env.emaple irá pro repositório
+
+3: Criar pix.auth.js
+
+4: entrar na pasta POC dar o init instalar o: npm install dotenv, npm install axios
+
+5: pra testar os .ENV  em pix.auth.js vc faz require do dotenv e passa o caminho em seguida dar um console.log e chama o arquivo com o node no terminal
+
+Gerencianet
+
+6: Em Gerencianet criar app pra gerar chave Client_ID e Secret  homologaçao e produção
+
+7:Em Gerencianet criar dois certificados e salvar no projeto depois passar o eles nos .env respectivo
+
+8: Em pix.auth.js preencher todos os GN_ENV de producao e homologacao de acordo com env.example
+
+.GITIGNORE= .ENV.PRODUCAO E .ENV.HOMOLOGACAO 
