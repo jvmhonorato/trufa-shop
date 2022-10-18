@@ -1,5 +1,7 @@
 1: Criar pasta POC(prova de conceito)
 
+OBS:criar .prettierrc e passar configurações de padronização como: single quotes e tirar o ";"
+
 2: dentro dela cria .envhomologacao, .env.producao e .env-example, OBS: somente .env.emaple irá pro repositório
 
 3: Criar pix.auth.js
@@ -16,4 +18,10 @@ Gerencianet
 
 8: Em pix.auth.js preencher todos os GN_ENV de producao e homologacao de acordo com env.example
 
-.GITIGNORE= .ENV.PRODUCAO E .ENV.HOMOLOGACAO 
+OBS:.GITIGNORE = .ENV.PRODUCAO E .ENV.HOMOLOGACAO 
+
+TOKEN
+
+9: em pixápi.js importar modilos axios, =https, fs, estanciar em baseURL a url básica de Gerencianet
+
+10: criar função getToken async usando o "FS" pra ler o certificado, e colhendo as credencais que vem do .env
