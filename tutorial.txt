@@ -24,4 +24,15 @@ TOKEN
 
 9: em pixápi.js importar modilos axios, =https, fs, estanciar em baseURL a url básica de Gerencianet
 
-10: criar função getToken async usando o "FS" pra ler o certificado, e colhendo as credencais que vem do .env
+10: criar função getToken() async usando o "FS" pra ler o certificado, e colhendo as credencais que vem do .env e passando outras rotinas seguindo a documentaçãop do Gerencianet
+
+11: criar função run() e chamar a função getToken dentro dela. estanciar  o access_token 
+
+12: Em headers substiuir : Authorization: "Basic " + auth, por Authorization: "Bearer " + access_token,
+
+13: rrefatorar o backend de acordo com a requisição no modo token removendo algun  códigos que ficaram desnecessário em relação ao arquivo que deixei com base o root-poc-api.js
+
+14: OBS:https://dev.gerencianet.com.br/docs/api-pix-endpoints
+Noo endpoint mostra os atributos a serme pasados em:  "data"
+
+15
