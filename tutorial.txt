@@ -28,11 +28,11 @@ TOKEN
 
 11: criar função run() e chamar a função getToken dentro dela. estanciar  o access_token 
 
-12: Em headers substiuir : Authorization: "Basic " + auth, por Authorization: "Bearer " + access_token,
+12: Em run() headers substiuir : Authorization: "Basic " + auth, por Authorization: "Bearer " + access_token, e em URL: url: baseURL + "/v2/cob"
 
-13: rrefatorar o backend de acordo com a requisição no modo token removendo algun  códigos que ficaram desnecessário em relação ao arquivo que deixei com base o root-poc-api.js
+13: refatorar o run() de acordo com a requisição no modo token removendo algun  códigos que ficaram desnecessário em relação ao getToken() acima
 
 14: OBS:https://dev.gerencianet.com.br/docs/api-pix-endpoints
 Noo endpoint mostra os atributos a serme pasados em:  "data"
 
-15
+15:
