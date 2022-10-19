@@ -49,29 +49,11 @@ const result = await axios(config)
     return result.data
   
 }
-
-
-const run = async() => {
-  const token = await getToken()
-  const accessToken = token.access_token
+// chargeData será cob na função run()
+const  createCharge = async(accessToken, chargeData) => {
     //Insira o caminho de seu certificado .p12 dentro de seu projeto
 const certificado = fs.readFileSync('../'+process.env.GN_CERTIFICADO)
-const data = JSON.stringify({ 
-  
-    "calendario": {
-      "expiracao": 3600
-    },
-    "devedor": {
-      "cpf": "12345678909",
-      "nome": "Victor Honorato"
-    },
-    "valor": {
-      "original": "123.45"
-    },
-    "chave": "71cdf9ba-c695-4e3c-b010-abb521a3f1be",
-    "solicitacaoPagador": "Informe o número ou identificador do pedido."
-  }
- )
+const data = JSON.stringify(chargeData)
 
 
 
@@ -94,7 +76,32 @@ const config = {
 
 const result = await axios(config)
   
-    console.log(result)
+    return result.data
+
+}
+
+const run = async() => {
+  const token = await getToken()
+  const accessToken = token.access_token
+  const cob = {
+    
+  
+      "calendario": {
+        "expiracao": 3600
+      },
+      "devedor": {
+        "cpf": "12345678909",
+        "nome": "Victor Honorato"
+      },
+      "valor": {
+        "original": "123.45"
+      },
+      "chave": "71cdf9ba-c695-4e3c-b010-abb521a3f1be",
+      "solicitacaoPagador": "Informe o número ou identificador do pedido."
+    
+  }
+  const cobranca = await createCharge(accessToken, cob)
+  console.log(cobranca)
   
   
 }

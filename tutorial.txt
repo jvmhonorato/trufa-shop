@@ -35,4 +35,6 @@ TOKEN
 14: OBS:https://dev.gerencianet.com.br/docs/api-pix-endpoints
 Noo endpoint mostra os atributos a serme pasados em:  "data"
 
-15:
+15:Entre getToken e run() criar a função createCharge(accessTken, chargeData) passando os paramentro token e data 
+
+16: m seguida o modelo de data que seria o parametro chatgeData add em run() estanciado em cop, depois em run() estanciar a função createcharge(accessToken, cob) dentro de run na contante cobranca depois chamar console.log(cobranca) 
