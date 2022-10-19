@@ -20,6 +20,8 @@ Gerencianet
 
 OBS:.GITIGNORE = .ENV.PRODUCAO E .ENV.HOMOLOGACAO 
 
+
+
 TOKEN
 
 9: em pixápi.js importar modilos axios, =https, fs, estanciar em baseURL a url básica de Gerencianet
@@ -38,3 +40,20 @@ Noo endpoint mostra os atributos a serme pasados em:  "data"
 15:Entre getToken e run() criar a função createCharge(accessTken, chargeData) passando os paramentro token e data 
 
 16: m seguida o modelo de data que seria o parametro chatgeData add em run() estanciado em cop, depois em run() estanciar a função createcharge(accessToken, cob) dentro de run na contante cobranca depois chamar console.log(cobranca) 
+
+17: colocar chave pix em uma variável de ambiente: process.env.CHAVE_PIX
+
+
+
+START QRCODE
+
+18:Criar função getLoc(accessToken. locId) url: baseURL +'/v2/loc/'+locId + '/qrcod' com o method "GET", sem o data
+e passar a chamada: const qrcode = await getLoc(accessToken, cobranca.loc.id) OBS: o loc está atrelado ao qrcode
+
+19: passa no env.producao a CHAVE_PIX verdadeira criada no Gerencianet
+
+//ORDEM
+getToken()
+createCharge(accessToken, chargeData)
+getLoc(accessToken, locId)
+run()

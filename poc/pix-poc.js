@@ -1,4 +1,5 @@
-require('dotenv').config({ path: '../.env.homologacao'})
+// require('dotenv').config({ path: '../.env.homologacao'})
+require('dotenv').config({ path: '../.env.producao'})
 
 const https = require("https")
 const axios = require("axios")
@@ -80,7 +81,39 @@ const result = await axios(config)
 
 }
 
+const  getLoc = async(accessToken, locId) => {
+  //Insira o caminho de seu certificado .p12 dentro de seu projeto
+const certificado = fs.readFileSync('../'+process.env.GN_CERTIFICADO)
+
+
+
+
+const agent = new https.Agent({
+pfx: certificado,
+passphrase: "",
+});
+//Consumo em desenvolvimento da rota post oauth/token
+const config = {
+method: "GET",
+url: baseURL +'/v2/loc/'+locId +'/qrcode',
+headers: {
+  Authorization: "Bearer " + accessToken,
+  "Content-Type": "application/json",
+},
+httpsAgent: agent,
+
+}
+
+const result = await axios(config)
+
+  return result.data
+
+}
+
+
+
 const run = async() => {
+  const chave = process.env.CHAVE_PIX
   const token = await getToken()
   const accessToken = token.access_token
   const cob = {
@@ -96,12 +129,13 @@ const run = async() => {
       "valor": {
         "original": "123.45"
       },
-      "chave": "71cdf9ba-c695-4e3c-b010-abb521a3f1be",
+      "chave":chave ,
       "solicitacaoPagador": "Informe o número ou identificador do pedido."
     
   }
   const cobranca = await createCharge(accessToken, cob)
-  console.log(cobranca)
+  const qrcode =await getLoc(accessToken, cobranca.loc.id)
+  console.log(qrcode)
   
   
 }
