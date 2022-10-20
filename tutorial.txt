@@ -52,8 +52,37 @@ e passar a chamada: const qrcode = await getLoc(accessToken, cobranca.loc.id) OB
 
 19: passa no env.producao a CHAVE_PIX verdadeira criada no Gerencianet
 
-//ORDEM
+//ORDEM backend
 getToken()
 createCharge(accessToken, chargeData)
 getLoc(accessToken, locId)
 run()
+
+
+FRONTEND
+
+20: Começar o front end criando nova pasta e entrando nela com cd trufa-shop-FRONTEND
+21: npm init -y
+
+22: npm install next react react-dom
+
+23: modificar o script em package.json com: 'build'= prepara as rotas estáticas, 'dev'=inicia o projeto em modo desenvolvedor, 'start'= auxilia dinamicamente o next a trablhar , se a aplicaçõ fosse estática bastava o build
+
+24:criar page/index.js que será o componmente principal da app
+
+25: criar em index.js a função getServerSideProps async
+
+PRISMIC
+
+25: Logar no: https://prismic.io/dashboard , criar repositorio
+
+26: instalar prismic:
+1= npx @slicemachine/init --repository victortrufashop
+2= npm run slicemachine
+3= logar em https//:localhost:9999
+4= npm install prismic-javascript
+
+27:Repeatable type
+
+29: estanciar em cliente: const client = Prismic.client('https://victortrufashop.prismic.io/api/v2') pegar a URL em prismic.io API & Secutity
+estancia a URLcom o Prismisc.client, em seguida  passar ela na props pra retorna pro JSX e renderizar o resultado

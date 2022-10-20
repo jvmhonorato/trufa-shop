@@ -1,0 +1,9 @@
+{
+  "id": "product",
+  "label": "Product",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}

@@ -1,3 +1,6 @@
 *.p12
 .env.producao
 .env.homologacao
+.next
+.slicemachine
+node_modules
