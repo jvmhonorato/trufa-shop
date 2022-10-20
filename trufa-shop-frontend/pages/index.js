@@ -1,3 +1,4 @@
+
 import React from "react";
 import  * as Prismic from "prismic-javascript";
 
@@ -5,7 +6,7 @@ import  * as Prismic from "prismic-javascript";
 const Index = (props) => {
     return (
         <div>
-            <h1>Trufa Shoppp</h1>
+            <h1 className="text-3xl font-bold " >Trufa Shop</h1>
             <p>Óla!</p>
             <pre>{JSON.stringify(props, null, 2)}</pre>
         </div>

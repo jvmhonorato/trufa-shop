@@ -86,3 +86,8 @@ PRISMIC
 
 29: estanciar em cliente: const client = Prismic.client('https://victortrufashop.prismic.io/api/v2') pegar a URL em prismic.io API & Secutity
 estancia a URLcom o Prismisc.client, em seguida  passar ela na props pra retorna pro JSX e renderizar o resultado
+
+TAILWIND NO NEXT
+
+30: instalar Tailwind seguindo a documentção : npm install -D tailwindcss postcss autoprefixer, criar pasta style/global.css add imports, e modificar o arquivo tailwind.config de acorod com a documentação
+31: criar  pages/_app.js que será o arquivo que englobará todos da aplicação. importa o tailwind nele pra que toda a app fique estilizada
