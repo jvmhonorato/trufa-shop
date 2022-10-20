@@ -91,3 +91,10 @@ TAILWIND NO NEXT
 
 30: instalar Tailwind seguindo a documentção : npm install -D tailwindcss postcss autoprefixer, criar pasta style/global.css add imports, e modificar o arquivo tailwind.config de acorod com a documentação
 31: criar  pages/_app.js que será o arquivo que englobará todos da aplicação. importa o tailwind nele pra que toda a app fique estilizada
+
+32: em tailwindcomponente.com escolher o melhor card pra o projeto show the code and copy to the project 
+
+33: editar o card de acordo com o projeto , testar como cards ficarão na tela com um array product em seguida passar: 
+products.map((product) =>(<section><section/>)), abstrair o {products} = props e passar no .map os valores correpndentes de acorod com o que retorna em {JSON.stringjy(props)}
+
+34: usar o flex-wrap pra pra descer os arrays
