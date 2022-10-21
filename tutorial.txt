@@ -102,3 +102,15 @@ products.map((product) =>(<section><section/>)), abstrair o {products} = props e
 35: criar pasta public e por logo.png dentro dela
 
 36: em tailwind/ resources/ heroicons buscar por cart escolher carrinho copiar JSX depois cria uma função e colar o jsx dentro em seguida no botão passar a função cmo componete React entre os <buttons> na função do heroicon usar () e não {}
+
+
+
+controle do carrinho:
+37: Pra passar o componente <Product/> dentro do .map() en Index.js em Product.js passar o (props) no componente e abstrair o const {product} = props ou simplismente passar ({product}) direto no componente e no Index.js passar :   <Products product={product}/> 
+
+38:Componentizei separadamente todos os componetes inclusive o CartIcons.js
+
+
+CONTEXT API 
+
+39: Cria componete CartContext.js  importar o createContext, USAR ELE NO ESTILO WRAP ABRAÇANDO P <Component {...pageProps}/> em _app.js
