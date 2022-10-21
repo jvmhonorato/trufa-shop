@@ -98,3 +98,7 @@ TAILWIND NO NEXT
 products.map((product) =>(<section><section/>)), abstrair o {products} = props e passar no .map os valores correpndentes de acorod com o que retorna em {JSON.stringjy(props)}
 
 34: usar o flex-wrap pra pra descer os arrays
+
+35: criar pasta public e por logo.png dentro dela
+
+36: em tailwind/ resources/ heroicons buscar por cart escolher carrinho copiar JSX depois cria uma função e colar o jsx dentro em seguida no botão passar a função cmo componete React entre os <buttons> na função do heroicon usar () e não {}
