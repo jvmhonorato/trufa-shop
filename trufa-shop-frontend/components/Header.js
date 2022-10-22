@@ -1,23 +1,18 @@
 
-import React, { useState, useContext } from "react";
+import React, {  useContext } from "react";
 import { CartContext } from './CartContext'
 
 
 const Header = () => {
     const cart = useContext(CartContext)
-    //function from CartContext
-const add = () => {
-    cart.addToCart({
-        id:1,
-        name:  'Trufa'
-    })
-}
+    //show cart quantity
+    const itemsCount = Object.keys(cart.cart).length
 
 
     return(
         <header>
-            <pre>{JSON.stringify(cart, null, 2)}</pre>
-            <button onClick={add}>Add</button>
+           
+            
             <nav className="
                 relative
                 w-full
@@ -46,7 +41,7 @@ const add = () => {
                         <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Contato</a>
                     </li>
                     <li classNem="nav-item pr-2">
-                    <button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho</button>
+                    <button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho {itemsCount > 0 && <span>({itemsCount})</span>}</button>
                     </li>
                 
                 </ul>

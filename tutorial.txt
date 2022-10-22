@@ -124,10 +124,15 @@ Exportar CartContext, CartProvider
 41: IMPORTAR E USAR CartProvider em _app.js NO ESTILO WRAP ABRAÇANDO P <Component {...pageProps}/> em _app.js DESSA FORMA EXPANDIR O CONTEXTO PRA TODA APLICAÇÃO
 
 42: Depois é só importar o CartContext no componete que desejar usar o contexto e estancair em uma constante usando o hook useContext.
+OB:  SEMPRE QUE QUISER MANIFESTAR UMA AÇÕ GLOBALMENTE DE FOMRASIMUNTANIA USAR O CONTEXT API OU REDUX
 
 TESTE/*
 43: No Header.js criar um botão com evento onClick chamando a função add que tem a função addToCart que vem la do CartContext
 
 44: Em product passar o   const cart = useContext(CartContext) e passar uma função dentro da função, emseguida no <button> passar o evento onClick chamndo add(product)  que irá chamr a função dentro da função com o product fixo
 */
+
+45: Em header.js estanciar Object.keys(cart.cart) e retornr no botão de carrinho pra mostra a qunatidade de produtos adicionadas
+
+46:Em Index.js passar o context e mostrar na tela 
 

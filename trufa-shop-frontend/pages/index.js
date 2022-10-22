@@ -1,15 +1,17 @@
 
-import React from "react";
 import  * as Prismic from "prismic-javascript";
 import Header from "../components/Header";
 import Products from "../components/Products";
+import React, {  useContext } from "react";
+import { CartContext } from '../components/CartContext'
+
 
 
 
 
 const Index = (props) => {
     const {products} = props
-    const carrinho = {}
+    const cart = useContext(CartContext)
     return (
         <>
         <div className="container mx-auto">
@@ -19,7 +21,7 @@ const Index = (props) => {
             
            
            
-            {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+            
             <main class="grid grid-flow-col grid-cols-3 gap-2">
                 {products.map((product) => (
                     <Products product={product}/>
@@ -29,7 +31,7 @@ const Index = (props) => {
         </div>
 
         </div>
-        
+        <pre>{JSON.stringify(cart.cart, null, 2)}</pre>
         </>
         
     )

@@ -15,7 +15,7 @@ const Products = (props) => {
     return(
         <>
          <section className=" flex flex-col md:flex-row gap-11 py-10 px-5 bg-white rounded-md shadow-lg">
-            <pre>{JSON.stringify(cart,null,2)}</pre>
+       
                 <div className="text-indigo-500 flex flex-col justify-between">
                 <img src={product.data.image.url} alt="" />
                 
