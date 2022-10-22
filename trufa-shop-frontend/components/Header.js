@@ -5,10 +5,19 @@ import { CartContext } from './CartContext'
 
 const Header = () => {
     const cart = useContext(CartContext)
+    //function from CartContext
+const add = () => {
+    cart.addToCart({
+        id:1,
+        name:  'Trufa'
+    })
+}
+
 
     return(
         <header>
             <pre>{JSON.stringify(cart, null, 2)}</pre>
+            <button onClick={add}>Add</button>
             <nav className="
                 relative
                 w-full

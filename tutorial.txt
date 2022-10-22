@@ -113,4 +113,21 @@ controle do carrinho:
 
 CONTEXT API 
 
-39: Cria componete CartContext.js  importar o createContext, USAR ELE NO ESTILO WRAP ABRAÇANDO P <Component {...pageProps}/> em _app.js
+39: Cria componete CartContext.js  importar o createContext e estanciar, crair uma função CartProvider
+
+40: Ainda em CartContext.js criar na função CartContext({children}) um useState cart, setCart e add uma função addtoCart(): que será o modleo de interface a ser usado nos outros componetes com valor real  e nela da o setCart() pegando o valor antigo ...old e colocar o product.id
+
+41: no return passar Em componente: o <CartContext value={state, função de add}> 
+
+Exportar CartContext, CartProvider
+
+41: IMPORTAR E USAR CartProvider em _app.js NO ESTILO WRAP ABRAÇANDO P <Component {...pageProps}/> em _app.js DESSA FORMA EXPANDIR O CONTEXTO PRA TODA APLICAÇÃO
+
+42: Depois é só importar o CartContext no componete que desejar usar o contexto e estancair em uma constante usando o hook useContext.
+
+TESTE/*
+43: No Header.js criar um botão com evento onClick chamando a função add que tem a função addToCart que vem la do CartContext
+
+44: Em product passar o   const cart = useContext(CartContext) e passar uma função dentro da função, emseguida no <button> passar o evento onClick chamndo add(product)  que irá chamr a função dentro da função com o product fixo
+*/
+
