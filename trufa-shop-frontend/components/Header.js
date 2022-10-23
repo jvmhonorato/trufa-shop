@@ -1,7 +1,7 @@
 
 import React, {  useContext } from "react";
 import { CartContext } from './CartContext'
-
+import Link from   'next/link'
 
 const Header = () => {
     const cart = useContext(CartContext)
@@ -33,7 +33,11 @@ const Header = () => {
                 ">
                 <div className="flex">
                     <div className="  ml-6 w-16">
-                    <img src="/logo.png" alt='trufa shop'height="42" width="42" />
+                        <Link href='/'>
+                        <a>
+                        <img src="/logo.png" alt='trufa shop'height="42" width="42" />
+                        </a>
+                        </Link>
                     </div>
 
                     
@@ -45,7 +49,10 @@ const Header = () => {
                         <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Contato</a>
                     </li>
                     <li classNem="nav-item pr-2">
-                    <button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho {itemsCount > 0 && <span>({itemsCount})</span>}</button>
+                        <Link href='/cart'>
+                        <a type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho {itemsCount > 0 && <span>({itemsCount})</span>}
+                        </a>
+                        </Link>
                     </li>
                 
                 </ul>

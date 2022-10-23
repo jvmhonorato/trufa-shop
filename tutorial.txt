@@ -151,3 +151,10 @@ Localstorage pra aplicação
  REDUCE
  49: caso queria mostra a soma da qunatidade(quantity) de cada sabor de cada item em CartContext.js, usar o REDUCE pois ele tem dois parâmetros o previous e o current, no return do reduce passar o prev + cart.cart[curr].quantity. quantity é a quantidade de trufas no banco de dados
 
+
+
+LINK
+
+50: Criar página  page/cart.js 
+
+em Header.js importa o Link do next dar um wrap no link <a> com <Link> e traçar a rota '/cart'
