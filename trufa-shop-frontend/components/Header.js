@@ -6,8 +6,12 @@ import { CartContext } from './CartContext'
 const Header = () => {
     const cart = useContext(CartContext)
     //show cart quantity
-    const itemsCount = Object.keys(cart.cart).length
-
+   // const itemsCount = Object.keys(cart.cart).length
+    const itemsCount = Object.keys(cart.cart).reduce((prev, curr) => {
+    
+        return prev + cart.cart[curr].quantity
+    }, 0)
+    
 
     return(
         <header>

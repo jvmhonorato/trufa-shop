@@ -23,6 +23,7 @@ const Index = (props) => {
            
             
             <main class="grid grid-flow-col grid-cols-3 gap-2">
+                
                 {products.map((product) => (
                     <Products product={product}/>
             ))}

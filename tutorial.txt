@@ -134,5 +134,20 @@ TESTE/*
 
 45: Em header.js estanciar Object.keys(cart.cart) e retornr no botão de carrinho pra mostra a qunatidade de produtos adicionadas
 
-46:Em Index.js passar o context e mostrar na tela 
+46:Em Index.js passar o context e mostrar na tela pra testar com o {JSON.stringjy(cart.cart)}
+
+
+
+PERSISTIR 
+Localstorage pra aplicação
+
+47: Em CartContext.js na função addToCart() envolver a lógica principal em uma função , passar a mesma dentro de um windows.LocalStorage em seguida retornar essa função
+
+48:Criar um useEffect() e dentro dele estanciar cartLocal pegando o window.LocalStorage('cart') em seguida criar uma condiconal pra se caso houver algo nesse local storage dar um setCart desse valor pra cart na fomra de JSON: que nesse caso é o state que representa o valor da carteira.
+ OBS: essa é a forma de passar o valor do localstorage pra a aplicação .
+
+
+
+ REDUCE
+ 49: caso queria mostra a soma da qunatidade(quantity) de cada sabor de cada item em CartContext.js, usar o REDUCE pois ele tem dois parâmetros o previous e o current, no return do reduce passar o prev + cart.cart[curr].quantity. quantity é a quantidade de trufas no banco de dados
 
