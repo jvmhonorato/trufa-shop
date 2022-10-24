@@ -12,6 +12,9 @@ import { CartContext } from '../components/CartContext'
 const Index = (props) => {
     const {products} = props
     const cart = useContext(CartContext)
+    const remove = id => () => {
+        cart.removeFromCart(id)
+    }
     return (
         <>
         <div className="container mx-auto">
@@ -46,22 +49,21 @@ const Index = (props) => {
 
                     <tbody class="text-sm divide-y divide-gray-100">
                     {Object.keys(cart.cart).map(key => {
-                        const {pruduct, quantity} = cart.cart[key]
+                        const {product, quantity} = cart.cart[key]
 
                     return(
                         <tr key={key}>
                             <td class="p-2">
                             {/* <pre>{JSON.stringify(cart.cart[key], null, 2)}</pre> */}
-                                <input type="checkbox" class="w-5 h-5" value="id-1"
-                                     />
+                             
                             </td>
                             <td class="p-2">
                                 <div class="font-medium text-gray-800">
-                                    {cart.cart[key].product.data.name}
+                                    {product.data.name}
                                 </div>
                             </td>
                             <td class="p-2">
-                                <div class="text-left">{cart.cart[key].quantity}</div>
+                                <div class="text-left">{quantity}</div>
                             </td>
                             <td class="p-2">
                                 <div class="text-left font-medium text-green-500">
@@ -70,7 +72,7 @@ const Index = (props) => {
                             </td>
                             <td class="p-2">
                                 <div class="flex justify-center">
-                                    <button>
+                                    <button onClick={remove(key)}>
                                         <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">

@@ -26,13 +26,27 @@ const CartProvider = ({children}) => {
                 product,
             },
           }
+          //save local storage
           window.localStorage.setItem('cart', JSON.stringify(newCart))
           return newCart
         })
     }
+    const removeFromCart = (productId) => {
+        setCart(old => {
+            const newCart = {}
+            Object.keys(old).forEach(id => {
+                if(id !== productId){
+                    newCart[id] = old[id]
+                }
+            })
+            //save local storage
+            window.localStorage.setItem('cart', JSON.stringify(newCart))
+            return newCart
+        })
+    }
     //send values of state "cart" and the function "addToCart" to others components
  return (
-    <CartContext.Provider value={{cart, addToCart}}>{children} </CartContext.Provider>
+    <CartContext.Provider value={{cart, addToCart, removeFromCart}}>{children} </CartContext.Provider>
  )
 }
 export {CartContext, CartProvider}

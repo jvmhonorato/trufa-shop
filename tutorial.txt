@@ -105,17 +105,23 @@ products.map((product) =>(<section><section/>)), abstrair o {products} = props e
 
 
 
-controle do carrinho:
+CONTROLE DO CARRINHO(CART)
+
 37: Pra passar o componente <Product/> dentro do .map() en Index.js em Product.js passar o (props) no componente e abstrair o const {product} = props ou simplismente passar ({product}) direto no componente e no Index.js passar :   <Products product={product}/> 
 
 38:Componentizei separadamente todos os componetes inclusive o CartIcons.js
 
+CONTEXT API passar funções
 
-CONTEXT API 
+
 
 39: Cria componete CartContext.js  importar o createContext e estanciar, crair uma função CartProvider
 
-40: Ainda em CartContext.js criar na função CartContext({children}) um useState cart, setCart e add uma função addtoCart(): que será o modleo de interface a ser usado nos outros componetes com valor real  e nela da o setCart() pegando o valor antigo ...old e colocar o product.id
+40: Ainda em CartContext.js criar na função CartContext({children}) um useState cart, setCart
+
+1: Criar uma função addtoCart(product): que será o modelo de interface a ser usado nos outros componetes com valor real  e nela da o setCart() pegando o valor antigo ...old e colocar o product.id, exportar em value. pPassar retorno pra localstorage
+
+2: Criar uma função removeFromCart(productId): passando uma condicional dentro caso o id dos produstos existentes seja diferente retornar os antigops sem retorna os declarados exportar em value. Passar retorno pra localstorage
 
 41: no return passar Em componente: o <CartContext value={state, função de add}> 
 
@@ -129,7 +135,7 @@ OB:  SEMPRE QUE QUISER MANIFESTAR UMA AÇÕ GLOBALMENTE DE FOMRASIMUNTANIA USAR 
 TESTE/*
 43: No Header.js criar um botão com evento onClick chamando a função add que tem a função addToCart que vem la do CartContext
 
-44: Em product passar o   const cart = useContext(CartContext) e passar uma função dentro da função, emseguida no <button> passar o evento onClick chamndo add(product)  que irá chamr a função dentro da função com o product fixo
+44: Em product passar o   const cart = useContext(CartContext) e passar uma função dentro da função, em seguida no <button> passar o evento onClick chamndo add(product)  que irá chamar a função dentro da função com o product fixo
 */
 
 45: Em header.js estanciar Object.keys(cart.cart) e retornr no botão de carrinho pra mostra a qunatidade de produtos adicionadas
@@ -138,10 +144,14 @@ TESTE/*
 
 
 
+
+
+
+
 PERSISTIR 
 Localstorage pra aplicação
 
-47: Em CartContext.js na função addToCart() envolver a lógica principal em uma função , passar a mesma dentro de um windows.LocalStorage em seguida retornar essa função
+47: Em CartContext.js na função addToCart() e removeFromCart() envolver a lógica principal em uma função , passar a mesma dentro de um windows.LocalStorage em seguida retornar essa função
 
 48:Criar um useEffect() e dentro dele estanciar cartLocal pegando o window.LocalStorage('cart') em seguida criar uma condiconal pra se caso houver algo nesse local storage dar um setCart desse valor pra cart na fomra de JSON: que nesse caso é o state que representa o valor da carteira.
  OBS: essa é a forma de passar o valor do localstorage pra a aplicação .
@@ -149,7 +159,7 @@ Localstorage pra aplicação
 
 
  REDUCE
- 49: caso queria mostra a soma da qunatidade(quantity) de cada sabor de cada item em CartContext.js, usar o REDUCE pois ele tem dois parâmetros o previous e o current, no return do reduce passar o prev + cart.cart[curr].quantity. quantity é a quantidade de trufas no banco de dados
+ 49: caso queria mostra a soma da quantidade(quantity) de cada sabor de cada item em CartContext.js, usar o REDUCE pois ele tem dois parâmetros o previous e o current, no return do reduce passar o prev + cart.cart[curr].quantity. quantity é a quantidade de trufas no banco de dados
 
 
 
@@ -164,4 +174,8 @@ HEAD
 51: importa o Head e passar title da aplicação
 
 
-OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <td>
+OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <td>:
+ {objeto1.objeto2[id dinâmico].subobjeto.subobjeto2.subobjeto3}
+ {cart.cart[key].product.data.name}
+
+ 52:
