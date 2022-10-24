@@ -12,7 +12,7 @@ const CartProvider = ({children}) => {
      }
     },[])
 
-
+    //increace unit
     const addToCart = (product) => {
         setCart((old) => {
             let quantity = 0
@@ -31,6 +31,28 @@ const CartProvider = ({children}) => {
           return newCart
         })
     }
+
+    //decrease unit
+    const removeToCart = (product) => {
+        setCart((old) => {
+            let quantity = 0
+            if(old[product.id]){
+                quantity = old[product.id].quantity
+            }
+            const newCart = {
+                ...old,
+            [product.id]: {
+                quantity: quantity-1,
+                product,
+            },
+          }
+          //save local storage
+          window.localStorage.setItem('cart', JSON.stringify(newCart))
+          return newCart
+        })
+    }
+    
+    //remove product
     const removeFromCart = (productId) => {
         setCart(old => {
             const newCart = {}
@@ -46,7 +68,7 @@ const CartProvider = ({children}) => {
     }
     //send values of state "cart" and the function "addToCart" to others components
  return (
-    <CartContext.Provider value={{cart, addToCart, removeFromCart}}>{children} </CartContext.Provider>
+    <CartContext.Provider value={{cart, addToCart, removeFromCart, removeToCart}}>{children} </CartContext.Provider>
  )
 }
 export {CartContext, CartProvider}

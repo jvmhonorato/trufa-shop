@@ -123,9 +123,11 @@ CONTEXT API passar funções
 
 2: Criar uma função removeFromCart(productId): passando uma condicional dentro caso o id dos produstos existentes seja diferente retornar os antigops sem retorna os declarados exportar em value. Passar retorno pra localstorage
 
+4: criar função removeToCart() pra dimnuir a qunatidade de determinado produto de acordo com o click
+
 41: no return passar Em componente: o <CartContext value={state, função de add}> 
 
-Exportar CartContext, CartProvider
+Exportar CartContext, CartProvider, e todasd as funções que houver
 
 41: IMPORTAR E USAR CartProvider em _app.js NO ESTILO WRAP ABRAÇANDO P <Component {...pageProps}/> em _app.js DESSA FORMA EXPANDIR O CONTEXTO PRA TODA APLICAÇÃO
 
