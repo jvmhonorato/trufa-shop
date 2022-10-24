@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Products from "../components/Products";
 import React, {  useContext } from "react";
 import { CartContext } from '../components/CartContext'
+import Head from 'next/head'
 
 
 
@@ -14,6 +15,9 @@ const Index = (props) => {
     const cart = useContext(CartContext)
     return (
         <>
+        <Head>
+            <title>TrufaShop</title>
+        </Head>
         <div className="container mx-auto">
             <Header/>
         

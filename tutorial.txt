@@ -157,4 +157,11 @@ LINK
 
 50: Criar página  page/cart.js 
 
-em Header.js importa o Link do next dar um wrap no link <a> com <Link> e traçar a rota '/cart'
+em Header.js importa o Link do next dar um wrap no link <a> com <Link> e traçar a rota '/cart'no botão do cart nos produtos e no botão carrinho no header
+
+HEAD
+
+51: importa o Head e passar title da aplicação
+
+
+OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <td>
