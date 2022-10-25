@@ -180,4 +180,30 @@ OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <
  {objeto1.objeto2[id dinâmico].subobjeto.subobjeto2.subobjeto3}
  {cart.cart[key].product.data.name}
 
- 52:
+
+
+
+ GOOGLE API
+
+ 52:no console do google API criar projeto escolher: google sheets/ credenciais/ chave de API/ gerenciar contas de serviços/ + criar conta de serviço
+
+ 53: criar como editos / / depois de criada / clicar ações / gerenciar chaves / adicionar chaves/criar chave JSON, baixar e colar na raiz do projeto
+
+ 54: copiar o email da conta de serviço :trufashop@trufashop-366615.iam.gserviceaccount.com
+ 
+ 55: adicionar o email no   .env  EMAIL_GOOGLE_API=
+
+ 56: mudar o nome do arquivo .json pra credentials.json
+
+ 55: abrir planilha do google doc e compatilhar o email de serviço no modo editor
+
+
+ POC-PLANILHA 
+
+ 56: criar em POC planilha-poc.js 
+
+ 57:instalar em poc : npm install google-spreadsheet
+
+ 58: Diferente do connect.js do PalpiteBox fizemos s API do poc trufa shop separando o cliente_email e a private_key, sendo assim passando no private key: credentials.private_key e no cliente_email: a variável de ambiente .env
+
+ 59: testar com addrows escolher qual planilha será adiconada os dados
