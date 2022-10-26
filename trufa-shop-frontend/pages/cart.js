@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Products from "../components/Products";
 import React, {  useContext } from "react";
 import { CartContext } from '../components/CartContext'
+import {useFormik} from 'formik'
 
 
 
@@ -12,6 +13,26 @@ import { CartContext } from '../components/CartContext'
 const Index = (props) => {
     const {products} = props
     const cart = useContext(CartContext)
+
+    //formik hook 
+    const form = useFormik({
+        initialValues: {
+            cpf:'',
+            nome: 'Victor Honorato',
+            telefone:''
+        },
+        onSubmit: async(values) => {
+            console.log(values)
+        }
+    })
+
+    //total sales of all products
+    const total = Object.keys(cart.cart).reduce((prev, curr) => {
+    
+        return prev + cart.cart[curr].quantity * cart.cart[curr].product.data.price
+    }, 0)
+    
+
     //remove product
     const remove = id => () => {
         cart.removeFromCart(id)
@@ -31,6 +52,7 @@ const Index = (props) => {
 
     return (
         <>
+         
         <div className="container mx-auto">
             <Header/>
             <section class="antialiased bg-gray-100 text-gray-600 h-screen px-4" x-data="app">
@@ -38,7 +60,7 @@ const Index = (props) => {
         
         <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header class="px-5 py-4 border-b border-gray-100">
-                <div class="font-semibold text-gray-800">Carrinho</div>
+                <div class="font-semibold text-gray-800 ">Carrinho <pre className="text-2xl">R${''}{Number(total).toFixed(2).replace('.',',' )}</pre></div>
             </header>
 
             <div class="overflow-x-auto p-3">
@@ -79,9 +101,9 @@ const Index = (props) => {
                             <td class="p-2">
                                 <div class="text-left">{quantity}</div>
                             </td>
-                            <td class="p-2">
+                            <td class="p-2">R$
                                 <div class="text-left font-medium text-green-500">
-                                {cart.cart[key].product.data.price * quantity}
+                                {Number(cart.cart[key].product.data.price * quantity).toFixed(2).replace('.',',')}
                                 </div>
                             </td>
                             <td class="p-2">
@@ -116,12 +138,51 @@ const Index = (props) => {
                      })}
                     </tbody>
                 </table>
+             
             </div>
+            
 
             
-            <div class="flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
-                <div>Total</div>
-                <div class="text-blue-600">RM <span x-text="total.toFixed(2)"></span></div>
+            <div class="flex justify-center font-semi-bold space-x-2 text-lg border-t border-gray-100 px-5 py-4">
+            <div className="justify-center md-flex">
+                     <form onSubmit={form.handleSubmit}>
+                        <div className="flex items-center w-full h-13 pl-3 flex space-x-4 ">
+                        <label className="text-base" > Nome:</label>
+                            <input
+                            type='text'
+                            name='nome'
+                            id='nome'
+                            placeholder=" Nome"
+                            value={form.values.nome}
+                            onChange={form.handleChange}
+                            />
+                        </div><br/>
+                        <div className="flex items-center w-full h-13 pl-3 flex space-x-8">
+                        <label className="text-base"> CPF:</label>
+                            <input
+                            type='text'
+                            name='cpf'
+                            id='cpf'
+                            placeholder="CPF"
+                            value={form.values.cpf}
+                            onChange={form.handleChange}
+                            />
+                        </div><br/>
+                        <div className="flex items-center w-full h-13 pl-3 flex space-x-4">
+                        <label className="text-base">Telefone:</label>
+                            <input
+                            type='text'
+                            name='telefone'
+                            id='telefone'
+                            placeholder="Whatapp"
+                            value={form.values.telefone}
+                            onChange={form.handleChange}
+                            />
+                        </div>
+                        <div class="text-blue-600 flex justify-center"><button type="submit">submit</button></div>
+                     </form>
+                </div>
+                
             </div>
 
             <div class="flex justify-end">

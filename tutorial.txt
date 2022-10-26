@@ -207,3 +207,10 @@ OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <
  58: Diferente do connect.js do PalpiteBox fizemos s API do poc trufa shop separando o cliente_email e a private_key, sendo assim passando no private key: credentials.private_key e no cliente_email: a variável de ambiente .env
 
  59: criar planilha-buscar-poc.js e passar rotina backend pra pegra dados e salvar dados. codigo comentado
+
+
+ FRONTEND
+
+ 60: instalar o formik pra gerenciar formulário : npm install formik
+
+61: Em cart.js estanciar o hook fomrik em form em seguida criar Formulário fomr pasando os type input de acorod com os type passados nno Formik
