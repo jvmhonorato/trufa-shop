@@ -58,14 +58,14 @@ const Index = (props) => {
     return (
         <>
          
-        <div classNameName="container mx-auto">
+        <div className="container mx-auto">
             <Header/>
             <section className="antialiased bg-gray-100 text-gray-600 h-screen px-4" x-data="app">
     <div className="flex flex-col justify-center h-full">
         
-        <div classNameName="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+        <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header className="px-5 py-4 border-b border-gray-100">
-                <div className="font-semibold text-gray-800 ">Carrinho <pre classNameName="text-2xl">R${''}{Number(total).toFixed(2).replace('.',',' )}</pre></div>
+                <div className="font-semibold text-gray-800 ">Carrinho <pre className="text-2xl">R${''}{Number(total).toFixed(2).replace('.',',' )}</pre></div>
             </header>
 
             <div className="overflow-x-auto p-3">
@@ -115,13 +115,13 @@ const Index = (props) => {
                                 <div className="flex justify-center">
                                   
                                     <button onClick={add(product)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-6 h-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                         </svg>
 
                                     </button>
                                     <button onClick={drop(product)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-6 h-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
                                         </svg>
 
@@ -130,7 +130,7 @@ const Index = (props) => {
                                         <svg className="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                                             </path>
                                         </svg>
@@ -149,7 +149,7 @@ const Index = (props) => {
 
             
             <div className="flex justify-center font-semi-bold space-x-2 text-lg border-t border-gray-100 px-5 py-4">
-            <div classNamee="justify-center md-flex">
+            <div className="justify-center md-flex">
                      <form onSubmit={form.handleSubmit}>
                         <div className="flex items-center w-full h-13 pl-3 flex space-x-4 ">
                         <label className="text-base" > Nome:</label>
