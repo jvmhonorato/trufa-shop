@@ -24,7 +24,7 @@ OBS:.GITIGNORE = .ENV.PRODUCAO E .ENV.HOMOLOGACAO
 
 TOKEN
 
-9: em pixápi.js importar modilos axios, =https, fs, estanciar em baseURL a url básica de Gerencianet
+9: em pix-poc.js importar modilos axios, =https, fs, estanciar em baseURL a url básica de Gerencianet
 
 10: criar função getToken() async usando o "FS" pra ler o certificado, e colhendo as credencais que vem do .env e passando outras rotinas seguindo a documentaçãop do Gerencianet
 
@@ -37,7 +37,7 @@ TOKEN
 14: OBS:https://dev.gerencianet.com.br/docs/api-pix-endpoints
 Noo endpoint mostra os atributos a serme pasados em:  "data"
 
-15:Entre getToken e run() criar a função createCharge(accessTken, chargeData) passando os paramentro token e data 
+15:Entre getToken e run() criar a função createCharge(accessToken, chargeData) passando os paramentro token e data 
 
 16: m seguida o modelo de data que seria o parametro chatgeData add em run() estanciado em cop, depois em run() estanciar a função createcharge(accessToken, cob) dentro de run na contante cobranca depois chamar console.log(cobranca) 
 
@@ -209,8 +209,24 @@ OBS: Descer nível atravez do "ID" usar no retorno do .map [key] nos campos do <
  59: criar planilha-buscar-poc.js e passar rotina backend pra pegra dados e salvar dados. codigo comentado
 
 
- FRONTEND
+ FRONTEND Next.js
 
  60: instalar o formik pra gerenciar formulário : npm install formik
 
+ instalar o axios: npm install axios e passar o axios pra consultar o back end
+
 61: Em cart.js estanciar o hook fomrik em form em seguida criar Formulário fomr pasando os type input de acorod com os type passados nno Formik
+
+Usar o axios em cart.js em form no onSubmit pra mandar os dados pro backend
+
+
+SEPARA BACKEND FRONTEND
+
+1: front-next: trufashop.com.br
+2: back-express.js: api.trufashop.com.br
+
+62: criar pasta trufa-shop-backend
+
+63: instalar :npm init -y,  npm install express cors,  cors será responsável por unir backend e frontend
+
+64: criar index.js criar servidor básico express

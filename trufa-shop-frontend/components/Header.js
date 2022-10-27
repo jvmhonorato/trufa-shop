@@ -48,9 +48,9 @@ const Header = () => {
                     <li className="nav-item pr-2">
                         <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Contato</a>
                     </li>
-                    <li classNem="nav-item pr-2">
+                    <li className="nav-item pr-2">
                         <Link href='/cart'>
-                        <a type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho {itemsCount > 0 && <span>({itemsCount})</span>}
+                        <a type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Carrinho {itemsCount > 0 && <span>({itemsCount})</span>}
                         </a>
                         </Link>
                     </li>

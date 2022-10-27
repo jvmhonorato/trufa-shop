@@ -1,7 +1,7 @@
 
 import  * as Prismic from "prismic-javascript";
 import Header from "../components/Header";
-import Products from "../components/Products";
+import axios from 'axios'
 import React, {  useContext } from "react";
 import { CartContext } from '../components/CartContext'
 import {useFormik} from 'formik'
@@ -18,11 +18,16 @@ const Index = (props) => {
     const form = useFormik({
         initialValues: {
             cpf:'',
-            nome: 'Victor Honorato',
+            nome: '',
             telefone:''
         },
+        //send data to BACKEND
         onSubmit: async(values) => {
-            console.log(values)
+            const result = await axios.post(
+                'http://localhost:3001/create-order',
+                values
+            )
+            console.log(result.data)
         }
     })
 
@@ -53,76 +58,76 @@ const Index = (props) => {
     return (
         <>
          
-        <div className="container mx-auto">
+        <div classNameName="container mx-auto">
             <Header/>
-            <section class="antialiased bg-gray-100 text-gray-600 h-screen px-4" x-data="app">
-    <div class="flex flex-col justify-center h-full">
+            <section className="antialiased bg-gray-100 text-gray-600 h-screen px-4" x-data="app">
+    <div className="flex flex-col justify-center h-full">
         
-        <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-            <header class="px-5 py-4 border-b border-gray-100">
-                <div class="font-semibold text-gray-800 ">Carrinho <pre className="text-2xl">R${''}{Number(total).toFixed(2).replace('.',',' )}</pre></div>
+        <div classNameName="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+            <header className="px-5 py-4 border-b border-gray-100">
+                <div className="font-semibold text-gray-800 ">Carrinho <pre classNameName="text-2xl">R${''}{Number(total).toFixed(2).replace('.',',' )}</pre></div>
             </header>
 
-            <div class="overflow-x-auto p-3">
-                <table class="table-auto w-full">
-                    <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+            <div className="overflow-x-auto p-3">
+                <table className="table-auto w-full">
+                    <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th></th>
-                            <th class="p-2">
-                                <div class="font-semibold text-left">Trufa</div>
+                            <th className="p-2">
+                                <div className="font-semibold text-left">Trufa</div>
                             </th>
-                            <th class="p-2">
-                                <div class="font-semibold text-left">Quantidade</div>
+                            <th className="p-2">
+                                <div className="font-semibold text-left">Quantidade</div>
                             </th>
-                            <th class="p-2">
-                                <div class="font-semibold text-left">Total</div>
+                            <th className="p-2">
+                                <div className="font-semibold text-left">Total</div>
                             </th>
-                            <th class="p-2">
-                                <div class="font-semibold text-center">Ação</div>
+                            <th className="p-2">
+                                <div className="font-semibold text-center">Ação</div>
                             </th>
                         </tr>
                     </thead>
 
-                    <tbody class="text-sm divide-y divide-gray-100">
+                    <tbody className="text-sm divide-y divide-gray-100">
                     {Object.keys(cart.cart).map(key => {
                         const {product, quantity} = cart.cart[key]
 
                     return(
                         <tr key={key}>
-                            <td class="p-2">
+                            <td className="p-2">
                             {/* <pre>{JSON.stringify(cart.cart[key], null, 2)}</pre> */}
                              
                             </td>
-                            <td class="p-2">
-                                <div class="font-medium text-gray-800">
+                            <td className="p-2">
+                                <div className="font-medium text-gray-800">
                                     {product.data.name}
                                 </div>
                             </td>
-                            <td class="p-2">
-                                <div class="text-left">{quantity}</div>
+                            <td className="p-2">
+                                <div className="text-left">{quantity}</div>
                             </td>
-                            <td class="p-2">R$
-                                <div class="text-left font-medium text-green-500">
+                            <td className="p-2">R$
+                                <div className="text-left font-medium text-green-500">
                                 {Number(cart.cart[key].product.data.price * quantity).toFixed(2).replace('.',',')}
                                 </div>
                             </td>
-                            <td class="p-2">
-                                <div class="flex justify-center">
+                            <td className="p-2">
+                                <div className="flex justify-center">
                                   
                                     <button onClick={add(product)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-6 h-6">
                                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                         </svg>
 
                                     </button>
                                     <button onClick={drop(product)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" classNameName="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
                                         </svg>
 
                                     </button>
                                     <button onClick={remove(key)}>
-                                        <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
+                                        <svg className="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -143,8 +148,8 @@ const Index = (props) => {
             
 
             
-            <div class="flex justify-center font-semi-bold space-x-2 text-lg border-t border-gray-100 px-5 py-4">
-            <div className="justify-center md-flex">
+            <div className="flex justify-center font-semi-bold space-x-2 text-lg border-t border-gray-100 px-5 py-4">
+            <div classNamee="justify-center md-flex">
                      <form onSubmit={form.handleSubmit}>
                         <div className="flex items-center w-full h-13 pl-3 flex space-x-4 ">
                         <label className="text-base" > Nome:</label>
@@ -179,15 +184,15 @@ const Index = (props) => {
                             onChange={form.handleChange}
                             />
                         </div>
-                        <div class="text-blue-600 flex justify-center"><button type="submit">submit</button></div>
+                        <div className="text-blue-600 flex justify-center"><button type="submit">submit</button></div>
                      </form>
                 </div>
                 
             </div>
 
-            <div class="flex justify-end">
+            <div className="flex justify-end">
                 
-                <input type="hidden" class="border border-black bg-gray-50" x-model="selected" />
+                <input type="hidden" className="border border-black bg-gray-50" x-model="selected" />
             </div>
         </div>
     </div>
