@@ -237,3 +237,14 @@ conectar POC com o BACKEND
 66: colar o conteudo de poc/planilha-poc.js em backend/spreadsheet.js e configurar a função saveOrder() e exportar o modulo pra index.js
 
 67: em index.js importar saveOder de spreadsheet e passar no app.post
+
+68 em cart.js na função form no onSubmit passar order: pra pegar os valores de values  e items passano o Object.keys().map pegando o nome, preço e qunatidade. em seguida retornar order.item = items e passar order como segundo parãmetro axios.post
+
+SPREADSHETT.JS === CART.JS
+conectar spreadsheet.js no backend con cart.js no frontend atraves do axios na função formik/onSubmit/result em cart.js  com saveOrder em spreadsheet.js 
+conectar ambas em backend REST  app.post
+
+69: instalar pra gerar o orderId uuid: npm install uuid 
+
+ importar no backend/spreadsheet.js abstraindo o v4() e estanciar no orderId
+

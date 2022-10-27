@@ -23,9 +23,21 @@ const Index = (props) => {
         },
         //send data to BACKEND
         onSubmit: async(values) => {
+            //grab the all values with spread operator
+            const order = {...values}
+            //loop through data list and return item values
+            const items =  Object.keys(cart.cart).map((curr) => {
+                const item = {
+                    quantity: cart.cart[curr].quantity ,
+                    price: cart.cart[curr].product.data.price,
+                    name: cart.cart[curr].product.data.name
+                }
+            return item
+            })
+            order.items = items
             const result = await axios.post(
                 'http://localhost:3001/create-order',
-                values
+                order
             )
             console.log(result.data)
         }
