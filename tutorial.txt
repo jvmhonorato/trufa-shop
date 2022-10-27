@@ -230,3 +230,10 @@ SEPARA BACKEND FRONTEND
 63: instalar :npm init -y,  npm install express cors,  cors será responsável por unir backend e frontend
 
 64: criar index.js criar servidor básico express
+
+conectar POC com o BACKEND
+65:instalar dotenv e google spreadsheet no backend : npm install dotenv google-spreadsheet
+
+66: colar o conteudo de poc/planilha-poc.js em backend/spreadsheet.js e configurar a função saveOrder() e exportar o modulo pra index.js
+
+67: em index.js importar saveOder de spreadsheet e passar no app.post
