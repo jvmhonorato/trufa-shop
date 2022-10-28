@@ -249,3 +249,14 @@ conectar ambas em backend REST  app.post
  importar no backend/spreadsheet.js abstraindo o v4() e estanciar no orderId
 
 subtituir o 0v4 pelo order.id e passar o id no index.js no POST/ await saveOrder({...req.body, id: pixCharge.txid}) que é o id da transação 
+
+
+STATUS COMPRA  ORDERSTATUS
+
+70: criar em forntend/cart.j um state orderStatus começamdo em ('pre-order'), em seguida antes do axios.post dar um setOderStatus('ordering')e depois no final do  onSubmit dar um setOrderStatus (Order-received)
+
+71 usar o state pra criar condicionais variando de acordo com o estado da aplicação pra renderizar fomrulário, ir pra tela de Aguarde... ou sumir ou fomulário e mostrar o QRcode de acorodo com o orderStatus
+
+QRCODE
+
+72: Criar um useState qrcode, setQrcode 

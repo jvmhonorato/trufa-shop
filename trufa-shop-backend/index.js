@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const {saveOrder} = require('./spreadsheet')
+const {saveOrder} = require('./lib/spreadsheet')
 const {createPixCharge} = require('./lib/pix')
 const bodyParser = require('body-parser')
 
@@ -17,11 +17,12 @@ app.get('/', (req, res)=> {
 
 app.post('/create-order', async (req, res) => {
     const pixCharge = await createPixCharge(req.body)
+    const {qrcode, cobranca} = pixCharge
     
 
   // func come from spreadsheet
-   await saveOrder({...req.body, id: pixCharge.txid})
-    res.send({ ok: 1, pixCharge })
+   await saveOrder({...req.body, id: cobranca.txid})
+    res.send({ ok: 1, qrcode, cobranca })
 })
 
 app.listen(3001, (err)=> {

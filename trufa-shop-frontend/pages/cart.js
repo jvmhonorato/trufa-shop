@@ -2,7 +2,7 @@
 import  * as Prismic from "prismic-javascript";
 import Header from "../components/Header";
 import axios from 'axios'
-import React, {  useContext } from "react";
+import React, {  useContext, useState } from "react";
 import { CartContext } from '../components/CartContext'
 import {useFormik} from 'formik'
 
@@ -12,6 +12,8 @@ import {useFormik} from 'formik'
 
 const Index = (props) => {
     const {products} = props
+    const [orderStatus, setOrderStatus]= useState('pre-order')//ordering, order-received
+    const [qrcode, setQrcode] = useState('')
     const cart = useContext(CartContext)
 
     //formik hook 
@@ -35,11 +37,15 @@ const Index = (props) => {
             return item
             })
             order.items = items
+            setOrderStatus('ordering')
             const result = await axios.post(
                 'http://localhost:3001/create-order',
                 order
             )
             console.log(result.data)
+           setQrcode(result.data.qrcode.imagemQrcode)
+            setOrderStatus('order-received')
+            
         }
     })
 
@@ -162,8 +168,9 @@ const Index = (props) => {
             
             <div className="flex justify-center font-semi-bold space-x-2 text-lg border-t border-gray-100 px-5 py-4">
             <div className="justify-center md-flex">
+                {orderStatus === 'pre-order'  &&  
                      <form onSubmit={form.handleSubmit}>
-                        <div className="flex items-center w-full h-13 pl-3 flex space-x-4 ">
+                        <div className="flex items-center w-full h-13 pl-3 flex space-x-8 ">
                         <label className="text-base" > Nome:</label>
                             <input
                             type='text'
@@ -174,7 +181,7 @@ const Index = (props) => {
                             onChange={form.handleChange}
                             />
                         </div><br/>
-                        <div className="flex items-center w-full h-13 pl-3 flex space-x-8">
+                        <div className="flex items-center w-full h-13 pl-3 flex space-x-12">
                         <label className="text-base"> CPF:</label>
                             <input
                             type='text'
@@ -198,14 +205,15 @@ const Index = (props) => {
                         </div>
                         <div className="text-blue-600 flex justify-center"><button type="submit">submit</button></div>
                      </form>
+                     }
+                     {orderStatus === 'ordering' && <p>Pedindo sendo atualizado, aguarde...</p>}
+                     {orderStatus === 'order-received' && <img src={qrcode}/>}
+                     
                 </div>
                 
             </div>
 
-            <div className="flex justify-end">
-                
-                <input type="hidden" className="border border-black bg-gray-50" x-model="selected" />
-            </div>
+         
         </div>
     </div>
 </section>
