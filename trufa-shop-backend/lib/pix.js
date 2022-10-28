@@ -134,7 +134,7 @@ const createPixCharge = async() => {
   }
   const cobranca = await createCharge(accessToken, cob)
   const qrcode =await getLoc(accessToken, cobranca.loc.id)
-  return qrcode,cobranca
+  return qrcode, cobranca
   
   
 }

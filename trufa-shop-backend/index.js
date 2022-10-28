@@ -16,10 +16,12 @@ app.get('/', (req, res)=> {
 })
 
 app.post('/create-order', async (req, res) => {
-    const qrcode = await createPixCharge()
- // console.log(req.body)
-   await saveOrder(req.body)
-    res.send({ ok: 1, qrcode })
+    const pixCharge = await createPixCharge(req.body)
+    
+
+  // func come from spreadsheet
+   await saveOrder({...req.body, id: pixCharge.txid})
+    res.send({ ok: 1, pixCharge })
 })
 
 app.listen(3001, (err)=> {

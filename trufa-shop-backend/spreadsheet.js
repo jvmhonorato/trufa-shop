@@ -28,7 +28,7 @@ const saveOrder = async(order) => {
     },0)
 
     //v4() uuid generate ID request
-    const orderId = v4()
+    const orderId = order.id
 
     //order.items come from frontend/cart.js  OBS: the name must be the same as the worksheet 
     const rows = order.items.map(item => {

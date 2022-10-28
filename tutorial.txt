@@ -248,3 +248,4 @@ conectar ambas em backend REST  app.post
 
  importar no backend/spreadsheet.js abstraindo o v4() e estanciar no orderId
 
+subtituir o 0v4 pelo order.id e passar o id no index.js no POST/ await saveOrder({...req.body, id: pixCharge.txid}) que é o id da transação 
