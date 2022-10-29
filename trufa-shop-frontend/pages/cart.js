@@ -170,6 +170,7 @@ const Index = (props) => {
             <div className="justify-center md-flex">
                 {orderStatus === 'pre-order'  &&  
                      <form onSubmit={form.handleSubmit}>
+                        <div className="flex items-center">Por favor, digite seus dados:</div>
                         <div className="flex items-center w-full h-13 pl-3 flex space-x-8 ">
                         <label className="text-base" > Nome:</label>
                             <input
@@ -181,7 +182,7 @@ const Index = (props) => {
                             onChange={form.handleChange}
                             />
                         </div><br/>
-                        <div className="flex items-center w-full h-13 pl-3 flex space-x-12">
+                        <div className="flex justify-center w-full h-13 pl-3 flex space-x-12">
                         <label className="text-base"> CPF:</label>
                             <input
                             type='text'
@@ -203,11 +204,11 @@ const Index = (props) => {
                             onChange={form.handleChange}
                             />
                         </div>
-                        <div className="text-blue-600 flex justify-center"><button type="submit">submit</button></div>
+                        <div className="text-blue-600 flex justify-center"><button type="submit">Pagar</button></div>
                      </form>
                      }
                      {orderStatus === 'ordering' && <p>Pedindo sendo atualizado, aguarde...</p>}
-                     {orderStatus === 'order-received' && <img src={qrcode}/>}
+                     {orderStatus === 'order-received' &&<><p className="text-blue-600 flex justify-center"> QRcode</p><img src={qrcode}/></> }
                      
                 </div>
                 

@@ -259,4 +259,9 @@ STATUS COMPRA  ORDERSTATUS
 
 QRCODE
 
-72: Criar um useState qrcode, setQrcode 
+72: Criar um useState qrcode, setQrcode  deixando ele em 2 estados naturalmente vazio e depoisd passar o setQrcode(result.data.qrcode.imagemQrcode) nmo onSubmit do fomrik
+
+CRIANMDO REGISTRO DNMS
+
+73: pra receber confirmção de pagamento da gerencianet em uma URL 
+criar um project na digitalocean.com no UBUNTU, copiar o ip,e  no nosso dominio na  vercel colar o ipv4 do dropless da digitalocean la  em domains /dns /Records / value colar o IP e tranformar em dominio no name digitando api/trufashop e o TTL: 60, depois apertar ADD. 
