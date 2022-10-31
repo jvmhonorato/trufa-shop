@@ -261,7 +261,10 @@ QRCODE
 
 72: Criar um useState qrcode, setQrcode  deixando ele em 2 estados naturalmente vazio e depoisd passar o setQrcode(result.data.qrcode.imagemQrcode) nmo onSubmit do fomrik
 
-CRIANMDO REGISTRO DNMS
+CRIANDO REGISTRO DNMS
 
-73: pra receber confirmção de pagamento da gerencianet em uma URL 
-criar um project na digitalocean.com no UBUNTU, copiar o ip,e  no nosso dominio na  vercel colar o ipv4 do dropless da digitalocean la  em domains /dns /Records / value colar o IP e tranformar em dominio no name digitando api/trufashop e o TTL: 60, depois apertar ADD. 
+73: pra receber confirmação de pagamento da gerencianet em uma URL 
+criar um project na digitalocean.com no UBUNTU, copiar o ipv4, e  no nosso dominio na  vercel colar o ipv4 do droplet da digitalocean la  em domains /dns /Records / value colar o IP e tranformar em dominio no name digitando api/trufashop ou o nome que desejar e o TTL: 60, depois apertar ADD. 
+
+74: Pra autenticar baixar e usar o Putty configuration,
+digitar o IP;  e apertar Open ele vai abrir o terminal e pedir uma nova senha, apos isso , entrar em certbolt.eff.org ,  esse site gera certificados, seguir a documnetaão instalando o snapd, certbot , o bin pra linkar com a maquina podendo rodar o certbot em qulaquer lugar da maquina, standalone  pra rodar sem a aplicação está rodando e webroot quando a aplicação estiver: add o dominio. OBS o certificado dura 3 meses, 
